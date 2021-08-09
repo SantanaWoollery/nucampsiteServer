@@ -5,7 +5,7 @@ const authenticate = require('../authenticate');
 const campsiteRouter = express.Router();
 ​
 campsiteRouter.route('/')
-    .get(authenticate.verifyUser, (req, res, next) => {
+    .get((req, res, next) => {
         Campsite.find()
             .populate('comments.author')
             .then(campsites => {
